@@ -1,0 +1,6 @@
+﻿dotnet pbxReporter.dll --server.urls http://127.0.0.0:5055
+
+
+dotnet publish --configuration Release
+
+ Scaffold-DbContext "server=172.16.0.50;port=3306;user=root;password=ad62468*T;database=asterisk;Convert Zero Datetime=True" "Pomelo.EntityFrameworkCore.MySql" -OutputDir Data\Asterisk

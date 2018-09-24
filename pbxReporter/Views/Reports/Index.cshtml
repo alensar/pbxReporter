@@ -1,0 +1,89 @@
+﻿@using jQWidgets.AspNetCore.Mvc.TagHelpers;
+@{
+    ViewData["Title"] = "PBX report";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div id="wrapper">
+    <div style="position:absolute;
+    bottom:0;
+    top:52px;
+    width:99%;
+    overflow:auto;
+    margin:0;
+    left:5px;"
+         id="kontajner">
+        <jqx-grid id="gridCdr" name="gridCdr"   width="99%" height="99%" columns-resize="true" show-status-bar="true" status-bar-height="40" show-aggregates="true" columns-auto-resize="true" groupable="true" clipboard="true" localization="{{localization}}" show-filter-row="true" sortable="true" filterable="true" pageable="false" editable="false" selection-mode="multiplerowsextended">
+            <jqx-grid-columns>
+                <jqx-grid-column datafield="datum" width="212" text="Datum" filter-type="range" cells-format="dd.MM.yyyy" column-group="dat" aggregates="['count']"></jqx-grid-column>
+                <jqx-grid-column datafield="vrijeme"  groupable="false"  text="Vrijeme" filterable=false column-group="dat" cells-format="hh:mm:ss" width="75"></jqx-grid-column>
+                <jqx-grid-column datafield="extNumber" text="Broj" filter-type="checkedlist" column-group="ext"></jqx-grid-column>
+                <jqx-grid-column datafield="extName" text="Naziv" column-group="ext"></jqx-grid-column>
+                <jqx-grid-column datafield="pozivaoc" text="Pozivaoc" column-group="poziv"></jqx-grid-column>
+                <jqx-grid-column datafield="pozivani" text="Pozvani" column-group="poziv"></jqx-grid-column>
+                <jqx-grid-column datafield="pozivTip" text="Tip" filter-type="checkedlist" column-group="poziv"></jqx-grid-column>
+                <jqx-grid-column datafield="pozivStatus" text="Status" filter-type="checkedlist" column-group="poziv"></jqx-grid-column>
+                <jqx-grid-column datafield="duration"  groupable="false" width="80" align=jQWidgets.AspNetCore.Mvc.TagHelpers.HorizontalAlignment.Center    text="Poziva" filterable="false" cells-align=jQWidgets.AspNetCore.Mvc.TagHelpers.HorizontalAlignment.Center column-group="trajanje"></jqx-grid-column>
+                <jqx-grid-column datafield="bilSec"  groupable="false"  width="80" align=jQWidgets.AspNetCore.Mvc.TagHelpers.HorizontalAlignment.Center text="Razgovora" filterable="false" cells-align=jQWidgets.AspNetCore.Mvc.TagHelpers.HorizontalAlignment.Center column-group="trajanje"></jqx-grid-column>
+                <jqx-grid-column datafield="durationSec" groupable="false" filter-type="number" width="110" align=HorizontalAlignment.Right cells-align=HorizontalAlignment.Right text="Poziva" column-group="sekundi" aggregates="['sum','avg']"></jqx-grid-column>
+                <jqx-grid-column datafield="bilSecSec" filter-type="number"  groupable="false"  width="110" align=HorizontalAlignment.Right cells-align=HorizontalAlignment.Right text="Razgovora" column-group="sekundi"  aggregates="['sum','avg']" ></jqx-grid-column>
+                <jqx-grid-column datafield="id" hidden="true"></jqx-grid-column>
+            </jqx-grid-columns>
+            <jqx-grid-column-groups>
+                <jqx-grid-column-group name="ext" text="Ekstenzija"></jqx-grid-column-group>
+                <jqx-grid-column-group name="dat" text="Datum i vrijeme poziva"></jqx-grid-column-group>
+                <jqx-grid-column-group name="poziv" text="POdatci o pozivu"></jqx-grid-column-group>
+                <jqx-grid-column-group name="trajanje" text="Vrijeme trajanja"></jqx-grid-column-group>
+                <jqx-grid-column-group name="sekundi" text="Ukupno sekundi"></jqx-grid-column-group>
+            </jqx-grid-column-groups>
+        </jqx-grid>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript" src="~/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="~/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="~/jqwidgets/globalization/globalize.culture.bs-Latn-BA.js"></script>
+    <script type="text/javascript" src="~/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="~/jqwidgets/jqxdatetimeinput.js"></script>
+    <script src="~/jqwidgets/jqxbuttons.js"></script>
+    <script src="~/jqwidgets/jqxscrollbar.js"></script>
+    <script src="~/jqwidgets/jqxgrid.js"></script>
+    <script src="~/jqwidgets/jqxgrid.edit.js"></script>
+    <script src="~/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script src="~/jqwidgets/jqxgrid.filter.js"></script>
+    <script src="~/jqwidgets/jqxgrid.selection.js"></script>
+    <script src="~/jqwidgets/jqxgrid.sort.js"></script>
+    <script src="~/jqwidgets/jqxgrid.pager.js"></script>
+    <script src="~/jqwidgets/jqxgrid.aggregates.js"></script>
+    <script src="~/jqwidgets/jqxgrid.grouping.js"></script>
+    <script src="~/jqwidgets/jqxdata.js"></script>
+    <script src="~/jqwidgets/jqxgrid.export.js"></script>
+    <script src="~/jqwidgets/jqxmenu.js"></script>
+    <script src="~/jqwidgets/jqxlistbox.js"></script>
+    <script src="~/jqwidgets/jqxdropdownlist.js"></script>
+    <script src="~/jqwidgets/jqxcheckbox.js"></script>
+    <script src="~/jqwidgets/jqxtabs.js"></script>
+    <script src="~/jqwidgets/jqxpanel.js"></script>
+    <script src="~/jqwidgets/jqxscrollbar.js"></script>
+    <script src="~/jqwidgets/jqxtree.js"></script>
+    <script src="~/jqwidgets/jqxswitchbutton.js"></script>
+    <script src="~/jqwidgets/jqxnavigationbar.js"></script>
+    <script src="~/jqwidgets/jqxwindow.js"></script>
+    <script src="~/jqwidgets/jqxnumberinput.js"></script>
+    <script src="~/jqwidgets/jqxgrid.columnsreorder.js"></script>
+    <script src="~/jqwidgets/jqxdropdownlist.js"></script>
+    <script src="~/jqwidgets/jqxlistbox.js"></script>
+    <script src="~/jqwidgets/jqxmaskedinput.js"></script>
+    <script src="~/jqwidgets/jqxdata.export.js"></script>
+    <script src="~/jqwidgets/jqxsplitter.js"></script>
+    <script src="~/js/forme/cdrRerport.js?ver=1"></script>
+    <script type="text/javascript">
+        var localization = getLocalization("bs");
+        //$(document).ready(function ready() {
+
+        //    //dopstuniFilteri();
+        //    console.log("evo te u ready funkciji");
+        //});
+    </script>
+
+}

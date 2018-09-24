@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Nedozvoljen psistup";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Nemate dovoljno prava za pristup resursu @ViewData["ReturnUrl"]</h1>
+<div class="jumbotron">
+    <p>Poštovani ukoliko smartarate da je ovo greška molimo vas javite se tehničkoj podršci kako bi mogli dodijliti vam korespondirajuća prava pristupa</p>
+</div>
+
+Vi ste Autentifikovani: @User.Identity.IsAuthenticated <br />
+Vaše korisničko ime je @User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault().Value<br />
+<h3>Vama su dodljeljene role</h3>
+<dl>
+    @foreach (var claim in User.Claims.Where(x => x.Type == ClaimTypes.Role))
+    {
+        <dd>@claim.Value</dd>
+    }
+</dl>
