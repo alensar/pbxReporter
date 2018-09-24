@@ -3,4 +3,4 @@
 
 dotnet publish --configuration Release
 
- Scaffold-DbContext "server=172.16.0.50;port=3306;user=root;password=ad62468*T;database=asterisk;Convert Zero Datetime=True" "Pomelo.EntityFrameworkCore.MySql" -OutputDir Data\Asterisk
+ Scaffold-DbContext "server=172.16.0.50;port=3306;user=98987;password=907897;database=asterisk;Convert Zero Datetime=True" "Pomelo.EntityFrameworkCore.MySql" -OutputDir Data\Asterisk
